@@ -4,7 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class Popular {
-
     private int[] packs;
     private int total;
     private int limit;

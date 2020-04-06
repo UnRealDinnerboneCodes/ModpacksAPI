@@ -5,7 +5,6 @@ import com.unrealdinnerbone.modpackapi.api.base.BaseVersion;
 import lombok.Getter;
 
 @Getter
-public class ModpackVersion extends BaseVersion
-{
+public class ModpackVersion extends BaseVersion {
     private Spec specs;
 }

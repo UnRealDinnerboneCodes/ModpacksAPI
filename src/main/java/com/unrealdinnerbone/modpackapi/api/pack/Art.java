@@ -3,8 +3,7 @@ package com.unrealdinnerbone.modpackapi.api.pack;
 import lombok.Getter;
 
 @Getter
-public class Art
-{
+public class Art {
     private int width;
     private int height;
     private String url;

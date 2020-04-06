@@ -1,7 +1,9 @@
 package com.unrealdinnerbone.modpackapi.api.version;
 
-public class File
-{
+import lombok.Getter;
+
+@Getter
+public class File {
     private String version;
     private String path;
     private String url;

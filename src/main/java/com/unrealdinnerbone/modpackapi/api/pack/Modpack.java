@@ -5,8 +5,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class Modpack
-{
+public class Modpack {
     private String synopsis;
     private List<Art> art;
     private List<Author> authors;
@@ -21,5 +20,4 @@ public class Modpack
     private String type;
     private long updated;
     private List<Tag> tags;
-
 }

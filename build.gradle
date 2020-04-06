@@ -27,7 +27,7 @@ repositories {
 dependencies {
     compile "org.projectlombok:lombok:1.18.2"
     compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
-    annotationProcessor "org.projectlombok:lombok:1.18.2
+    annotationProcessor "org.projectlombok:lombok:1.18.2"
 }
 
 
