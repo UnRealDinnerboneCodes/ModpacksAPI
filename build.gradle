@@ -24,9 +24,25 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    shade
+    compile.extendsFrom shade
+    shadow.extendsFrom shade
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    minimize()
+    mergeServiceFiles()
+    dependencies {
+        exclude "*.html"
+        exclude dependency('org.projectlombok:lombok')
+    }
+}
+
 dependencies {
     compile "org.projectlombok:lombok:1.18.2"
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    shade group: 'com.google.code.gson', name: 'gson', version: '2.7'
     annotationProcessor "org.projectlombok:lombok:1.18.2"
 }
 
