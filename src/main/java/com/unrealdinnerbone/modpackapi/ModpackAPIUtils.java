@@ -29,7 +29,7 @@ class ModpackAPIUtils {
             try {
                 return GSON.fromJson(theUrlData, tClass);
             }catch (JsonSyntaxException e) {
-                throw new RuntimeException("error while parsing json, are you input correct?");
+                throw new RuntimeException("error while parsing json, is your input correct?");
             }
         }else {
             return null;
