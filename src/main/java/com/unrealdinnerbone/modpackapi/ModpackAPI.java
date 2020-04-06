@@ -38,7 +38,7 @@ public class ModpackAPI {
     }
 
     public static String getServerDownloadURL(int modpack, int version, OS os) {
-        return ModpackAPIUtils.BASE_URL + "public/modpack/" + modpack + "/" + version + "/server" + os.name().toLowerCase();
+        return ModpackAPIUtils.BASE_URL + "public/modpack/" + modpack + "/" + version + "/server/" + os.name().toLowerCase();
     }
 
     public static <T> T get(Class<T> tClass, String base) {
