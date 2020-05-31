@@ -1,19 +1,22 @@
 buildscript {
     repositories {
-        maven {
-            name 'Shadow'
-            url 'http://dl.bintray.com/content/johnrengelman/gradle-plugins'
-        }
         mavenCentral()
         mavenLocal()
     }
 }
 
-
 plugins {
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id "maven-publish"
     id 'java'
 }
+
+group 'com.unrealdinnerbone'
+version '0.0.0'
+
+def ENV = System.getenv()
+def buildNumber = ENV.GITHUB_RUN_NUMBER ? "${ENV.GITHUB_RUN_NUMBER}" : "0"
+version = project.getProperty("version") + ("+build." + buildNumber).replace("\\", "")
+sourceCompatibility = 1.8
 
 group 'com.unrealdinnerbone'
 version '1.0.3'
@@ -24,26 +27,32 @@ repositories {
     mavenCentral()
 }
 
-configurations {
-    shade
-    compile.extendsFrom shade
-    shadow.extendsFrom shade
-}
-
-shadowJar {
-    configurations = [project.configurations.shade]
-    minimize()
-    mergeServiceFiles()
-    dependencies {
-        exclude "*.html"
-        exclude dependency('org.projectlombok:lombok')
-    }
-}
 
 dependencies {
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
     compile "org.projectlombok:lombok:1.18.2"
-    shade group: 'com.google.code.gson', name: 'gson', version: '2.7'
     annotationProcessor "org.projectlombok:lombok:1.18.2"
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            version = project.getProperty("version")
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://maven.unreal.codes/repository/unreal/"
+            credentials {
+                username ENV.MAVEN_USERNAME
+                password ENV.MAVEN_PASSWORD
+            }
+
+        }
+    }
 }
 
 
