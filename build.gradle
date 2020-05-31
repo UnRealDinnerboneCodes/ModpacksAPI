@@ -11,22 +11,15 @@ plugins {
 }
 
 group 'com.unrealdinnerbone'
-version '0.0.0'
 
 def ENV = System.getenv()
 def buildNumber = ENV.GITHUB_RUN_NUMBER ? "${ENV.GITHUB_RUN_NUMBER}" : "0"
 version = project.getProperty("version") + ("+build." + buildNumber).replace("\\", "")
 sourceCompatibility = 1.8
 
-group 'com.unrealdinnerbone'
-version '1.0.3'
-
-sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
