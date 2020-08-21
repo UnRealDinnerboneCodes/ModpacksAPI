@@ -14,6 +14,8 @@ public class Modpack {
     private int plays;
     private boolean featured;
     private long refreshed;
+    private String notification;
+    private Rating rating;
     private String status;
     private int id;
     private String name;
