@@ -6,6 +6,7 @@ import lombok.Getter;
 public class Art {
     private int width;
     private int height;
+    private boolean compressed;
     private String url;
     private String sha1;
     private int size;

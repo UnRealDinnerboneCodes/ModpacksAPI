@@ -1,6 +1,7 @@
-package com.unrealdinnerbone.modpackapi;
+package com.unrealdinnerbone.modpackapi.util;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.BufferedReader;
@@ -14,30 +15,22 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
-class ModpackAPIUtils {
+public class ModpackAPIUtils {
 
     public static final String BASE_URL = "https://api.modpacks.ch/";
-    private static final Gson GSON = new Gson();
+    public static final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().serializeNulls().create();
 
     public static String get(String dataURL) {
         return getFromURL(BASE_URL + dataURL);
     }
 
-    public static <T> T get(Class<T> tClass, String urlData) {
+    public static <T> ReturnResult<T> get(Class<T> tClass, String urlData) {
         String theUrlData = get(urlData);
-        if(theUrlData != null) {
-            try {
-                return GSON.fromJson(theUrlData, tClass);
-            }catch (JsonSyntaxException e) {
-                throw new RuntimeException("error while parsing json, is your input correct?");
-            }
-        }else {
-            return null;
-        }
+        return theUrlData != null ? new ReturnResult<>(theUrlData, tClass) : null;
     }
 
 
-    private static String getFromURL(String theURL) {
+    public static String getFromURL(String theURL) {
         try {
             URL url = new URL(theURL);
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), StandardCharsets.UTF_8));
