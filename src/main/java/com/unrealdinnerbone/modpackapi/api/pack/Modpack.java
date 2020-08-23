@@ -9,7 +9,7 @@ public class Modpack {
     private String synopsis;
     private String description;
     private List<Art> art;
-    private List<String> links;
+    private List<Object> links;
     private List<Author> authors;
     private List<ModpackVersion> versions;
     private int installs;
