@@ -2,10 +2,8 @@ package com.unrealdinnerbone.modpackapi.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
-public class ReturnResult<T>
-{
+public class ReturnResult<T> {
     private final static JsonParser PARSER = new JsonParser();
     private final String value;
     private final Class<T> tClass;
@@ -36,7 +34,7 @@ public class ReturnResult<T>
         JsonElement theRealJson = null;
         if(jsonElement.isJsonArray()) {
             theRealJson = jsonElement.getAsJsonArray();
-        }else if (jsonElement.isJsonObject()) {
+        } else if(jsonElement.isJsonObject()) {
             theRealJson = jsonElement.getAsJsonObject();
         }
         return ModpackAPIUtils.GSON.toJson(theRealJson);

@@ -2,11 +2,11 @@ package com.unrealdinnerbone.modpackapi;
 
 import com.unrealdinnerbone.modpackapi.api.base.OS;
 import com.unrealdinnerbone.modpackapi.api.pack.Modpack;
+import com.unrealdinnerbone.modpackapi.api.popular.Popular;
 import com.unrealdinnerbone.modpackapi.api.popular.PopularTyped;
 import com.unrealdinnerbone.modpackapi.api.popular.TagPopular;
 import com.unrealdinnerbone.modpackapi.api.version.Changelog;
 import com.unrealdinnerbone.modpackapi.api.version.Version;
-import com.unrealdinnerbone.modpackapi.api.popular.Popular;
 import com.unrealdinnerbone.modpackapi.util.ModpackAPIUtils;
 import com.unrealdinnerbone.modpackapi.util.ReturnResult;
 
@@ -49,16 +49,8 @@ public class ModpackAPI {
     }
 
     public static ReturnResult<Changelog> getVersionChangelog(int modpack, int version) {
-        return get(Changelog.class, "public/modpack/"+ modpack + "/" + version + "/changelog");
+        return get(Changelog.class, "public/modpack/" + modpack + "/" + version + "/changelog");
     }
-
-
-
-
-
-
-
-
 
     public static ReturnResult<Popular> getTopPlayed(String tag, int amount) {
         return get(Popular.class, "public/modpack/featured/" + amount);

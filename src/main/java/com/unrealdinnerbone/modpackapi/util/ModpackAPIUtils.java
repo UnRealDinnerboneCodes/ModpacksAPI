@@ -2,15 +2,12 @@ package com.unrealdinnerbone.modpackapi.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
@@ -28,7 +25,6 @@ public class ModpackAPIUtils {
         String theUrlData = get(urlData);
         return theUrlData != null ? new ReturnResult<>(theUrlData, tClass) : null;
     }
-
 
     public static String getFromURL(String theURL) {
         try {

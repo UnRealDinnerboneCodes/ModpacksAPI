@@ -6,8 +6,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class Version extends BaseVersion
-{
+public class Version extends BaseVersion {
     private List<File> files;
     private Spec specs;
     private List<Target> targets;

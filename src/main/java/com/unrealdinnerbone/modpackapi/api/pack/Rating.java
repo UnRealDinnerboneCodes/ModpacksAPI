@@ -3,8 +3,7 @@ package com.unrealdinnerbone.modpackapi.api.pack;
 import lombok.Getter;
 
 @Getter
-public class Rating
-{
+public class Rating {
     private int id;
     private boolean configured;
     private boolean verified;
