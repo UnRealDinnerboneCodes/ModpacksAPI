@@ -1,6 +1,8 @@
 package com.unrealdinnerbone.modpackapi;
 
 import com.unrealdinnerbone.modpackapi.util.ReturnResult;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +15,7 @@ public class JsonTest {
 
     @Test
     public void testModPackVersion() {
-        //Todo
+        test(ModpackAPI.getVersion(20, 102));
     }
 
     @Test
@@ -64,6 +66,7 @@ public class JsonTest {
         Assert.assertNotNull(returnResult.getReformtedJson());
         Assert.assertNotNull(returnResult.getRawValue());
         Assert.assertEquals(returnResult.getFormattedJson(), returnResult.getReformtedJson());
+//        Assert.strin(returnResult.getFormattedJson(), returnResult.getReformtedJson());
     }
 
 

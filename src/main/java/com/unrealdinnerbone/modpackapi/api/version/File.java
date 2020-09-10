@@ -8,6 +8,7 @@ public class File {
     private String path;
     private String url;
     private String sha1;
+    private int size;
     private String[] tags;
     private boolean clientonly;
     private boolean serveronly;

@@ -14,8 +14,11 @@ public class Version extends BaseVersion
     private int installs;
     private int plays;
     private long refreshed;
-    private String status;
     private String changelog;
     private int parent;
+    private String notification;
+    private Object[] links;
+    private String status;
+
 }
 
