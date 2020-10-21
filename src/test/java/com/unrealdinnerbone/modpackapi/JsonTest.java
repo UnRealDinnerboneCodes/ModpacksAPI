@@ -66,7 +66,6 @@ public class JsonTest {
         Assert.assertNotNull(returnResult.getReformtedJson());
         Assert.assertNotNull(returnResult.getRawValue());
         Assert.assertEquals(returnResult.getFormattedJson(), returnResult.getReformtedJson());
-//        Assert.strin(returnResult.getFormattedJson(), returnResult.getReformtedJson());
     }
 
 
