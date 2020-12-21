@@ -1,5 +1,6 @@
 package com.unrealdinnerbone.modpackapi;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.unrealdinnerbone.modpackapi.util.ReturnResult;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
@@ -57,6 +58,10 @@ public class JsonTest {
     @Test
     public void testPackSearch() {
         test(ModpackAPI.searchForPack(100, "Direwolf"));
+    }
+    @Test
+    public void testAll() {
+        test(ModpackAPI.getAll());
     }
 
     private void test(ReturnResult returnResult) {

@@ -10,4 +10,5 @@ public class TagPopular {
     private int total;
     private int limit;
     private long refreshed;
+    private String status;
 }

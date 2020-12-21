@@ -2,9 +2,7 @@ package com.unrealdinnerbone.modpackapi;
 
 import com.unrealdinnerbone.modpackapi.api.base.OS;
 import com.unrealdinnerbone.modpackapi.api.pack.Modpack;
-import com.unrealdinnerbone.modpackapi.api.popular.Popular;
-import com.unrealdinnerbone.modpackapi.api.popular.PopularTyped;
-import com.unrealdinnerbone.modpackapi.api.popular.TagPopular;
+import com.unrealdinnerbone.modpackapi.api.popular.*;
 import com.unrealdinnerbone.modpackapi.api.version.Changelog;
 import com.unrealdinnerbone.modpackapi.api.version.Version;
 import com.unrealdinnerbone.modpackapi.util.ModpackAPIUtils;
@@ -24,20 +22,24 @@ public class ModpackAPI {
         return get(Popular.class, "public/modpack/featured/" + amount);
     }
 
-    public static ReturnResult<PopularTyped> getMostPlayed(int amount) {
-        return get(PopularTyped.class, "public/modpack/popular/plays/" + amount);
+    public static ReturnResult<PopularTypedTwo> getMostPlayed(int amount) {
+        return get(PopularTypedTwo.class, "public/modpack/popular/plays/" + amount);
     }
 
     public static ReturnResult<PopularTyped> getMostInstalled(int amount) {
         return get(PopularTyped.class, "public/modpack/popular/installs/" + amount);
     }
 
-    public static ReturnResult<Popular> getMostPlayed(int amount, String tag) {
-        return get(Popular.class, "public/modpack/popular/plays/" + tag + "/" + amount);
+    public static ReturnResult<PopularStatus> getMostPlayed(int amount, String tag) {
+        return get(PopularStatus.class, "public/modpack/popular/plays/" + tag + "/" + amount);
     }
 
-    public static ReturnResult<Popular> getMostInstalled(int amount, String tag) {
-        return get(Popular.class, "public/modpack/popular/installs/" + tag + "/" + amount);
+    public static ReturnResult<PopularStatus> getMostInstalled(int amount, String tag) {
+        return get(PopularStatus.class, "public/modpack/popular/installs/" + tag + "/" + amount);
+    }
+
+    public static ReturnResult<Modpacks> getAll() {
+        return get(Modpacks.class, "public/modpack/all/");
     }
 
     public static ReturnResult<Modpack> getModpack(int modpack) {

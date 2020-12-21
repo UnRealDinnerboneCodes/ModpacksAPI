@@ -3,9 +3,9 @@ package com.unrealdinnerbone.modpackapi.api.popular;
 import lombok.Getter;
 
 @Getter
-public class Popular {
+public class Modpacks {
     private int[] packs;
     private int total;
-    private int limit;
     private long refreshed;
+    private String status;
 }
