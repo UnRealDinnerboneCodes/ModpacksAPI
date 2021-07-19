@@ -1,8 +1,5 @@
 package com.unrealdinnerbone.modpackapi.util;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +12,6 @@ import java.util.stream.Collectors;
 public class ModpackAPIUtils {
 
     public static final String BASE_URL = "https://api.modpacks.ch/";
-    public static final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().serializeNulls().create();
 
     public static String get(String dataURL) {
         return getFromURL(BASE_URL + dataURL);

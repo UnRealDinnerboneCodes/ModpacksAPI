@@ -1,16 +1,3 @@
 package com.unrealdinnerbone.modpackapi.api.pack;
 
-import lombok.Getter;
-
-@Getter
-public class Art {
-    private int width;
-    private int height;
-    private boolean compressed;
-    private String url;
-    private String sha1;
-    private int size;
-    private int id;
-    private String type;
-    private long updated;
-}
+public record Art(int width, int height, boolean compressed, String url, String sha1, int size, int id, String type, long updated) {}
