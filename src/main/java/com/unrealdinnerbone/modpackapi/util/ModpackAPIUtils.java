@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class ModpackAPIUtils {
 
-    public static final String BASE_URL = "https://api.modpacks.ch/";
+    public static final String BASE_URL = System.getenv().getOrDefault("MODPACKS_API_URL", "https://api.modpacks.ch/");
 
     public static String get(String dataURL) {
         return getFromURL(BASE_URL + dataURL);
