@@ -1,13 +1,7 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        mavenLocal()
-    }
-}
-
 plugins {
     id "maven-publish"
     id 'java'
+    id 'java-library'
 }
 
 group 'com.unrealdinnerbone'
