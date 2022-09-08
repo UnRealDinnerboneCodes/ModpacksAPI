@@ -6,4 +6,6 @@ public interface IArt
     int height();
     boolean compressed();
     String type();
+
+    String[] mirrors();
 }

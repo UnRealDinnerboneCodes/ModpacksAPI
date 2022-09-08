@@ -1,14 +1,15 @@
 package com.unrealdinnerbone.modpackapi;
 
+import com.unrealdinnerbone.modpackapi.api.base.OS;
 import com.unrealdinnerbone.modpackapi.api.modpack.*;
+import com.unrealdinnerbone.modpackapi.api.modpack.version.Changelog;
+import com.unrealdinnerbone.modpackapi.api.modpack.version.VersionManifest;
 import com.unrealdinnerbone.modpackapi.api.mods.ModManifest;
 import com.unrealdinnerbone.modpackapi.api.mods.ModSearch;
 import com.unrealdinnerbone.modpackapi.api.tag.TagPopular;
-import com.unrealdinnerbone.modpackapi.api.base.OS;
-import com.unrealdinnerbone.modpackapi.api.modpack.version.Changelog;
-import com.unrealdinnerbone.modpackapi.api.modpack.version.VersionManifest;
 import com.unrealdinnerbone.modpackapi.util.ModpackAPIUtils;
-import com.unrealdinnerbone.modpackapi.util.ReturnResult;
+import com.unrealdinnerbone.unreallib.apiutils.ReturnResult;
+import com.unrealdinnerbone.unreallib.web.HttpUtils;
 
 public class ModpackAPI {
 
@@ -21,7 +22,7 @@ public class ModpackAPI {
 
     public static class Mods {
         public static ReturnResult<ModSearch> searchForMods(int amount, String term) {
-            return get(ModSearch.class, "public/mod/search/" + amount + "?term=" + ModpackAPIUtils.encode(term));
+            return get(ModSearch.class, "public/mod/search/" + amount + "?term=" + HttpUtils.encode(term));
         }
 
         public static ReturnResult<ModManifest> getMod(int id) {
@@ -55,7 +56,7 @@ public class ModpackAPI {
         }
 
         public static ReturnResult<ModpackSearch> searchForPack(int amount, String term) {
-            String encodedURL = ModpackAPIUtils.encode(term);
+            String encodedURL = HttpUtils.encode(term);
             return encodedURL != null ? get(ModpackSearch.class, "public/modpack/search/" + amount + "?term=" + encodedURL) : null;
         }
 
