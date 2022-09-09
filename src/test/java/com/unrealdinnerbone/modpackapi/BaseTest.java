@@ -1,6 +1,6 @@
 package com.unrealdinnerbone.modpackapi;
 
-import com.unrealdinnerbone.unreallib.apiutils.ReturnResult;
+import com.unrealdinnerbone.unreallib.apiutils.JsonResult;
 import com.unrealdinnerbone.unreallib.json.JsonParseException;
 import com.unrealdinnerbone.unreallib.json.JsonUtil;
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 public abstract class BaseTest {
 
-    protected void test(ReturnResult<?> returnResult) {
+    protected void test(JsonResult<?> returnResult) {
         Assert.assertNotNull(returnResult);
         Assert.assertNotNull(returnResult.getRawValue());
         Assert.assertNotNull(returnResult.get());
@@ -20,11 +20,11 @@ public abstract class BaseTest {
         Assert.assertEquals(aFormat(returnResult), bFormat(returnResult));
     }
 
-    public Map<String, ?> getA(ReturnResult<?> returnResult) {
+    public Map<String, ?> getA(JsonResult<?> returnResult) {
         return getFor(returnResult.getRawValue());
     }
 
-    public Map<String, ?> getB(ReturnResult<?> returnResult) {
+    public Map<String, ?> getB(JsonResult<?> returnResult) {
         return getFor(getReformtedJson(returnResult));
     }
 
@@ -38,14 +38,14 @@ public abstract class BaseTest {
         }
     }
 
-    public String aFormat(ReturnResult<?> returnResult) {
+    public String aFormat(JsonResult<?> returnResult) {
         return JsonUtil.DEFAULT.toFancyJson(Object.class, getA(returnResult));
     }
-    public String bFormat(ReturnResult<?> returnResult) {
+    public String bFormat(JsonResult<?> returnResult) {
         return JsonUtil.DEFAULT.toFancyJson(Object.class, getB(returnResult));
     }
 
-    public <T> String getReformtedJson(ReturnResult<T> returnResult) {
+    public <T> String getReformtedJson(JsonResult<T> returnResult) {
         return JsonUtil.DEFAULT.toFancyJson(returnResult.getClazz(), returnResult.get());
     }
 
